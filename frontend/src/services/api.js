@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v1/user"; // API 基本 URL
+const API_URL = process.env.REACT_APP_API_URL; // 從 .env 獲取 API URL
 
 // 獲取所有學生資料
 export const findAll = async () => {

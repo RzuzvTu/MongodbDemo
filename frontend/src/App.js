@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import StudentList from "./components/StudentList";
-import AddStudentForm from "./components/AddStudentForm";
-import DeleteStudent from "./components/DeleteStudent";
-import UpdateStudentForm from "./components/UpdateStudentForm"; 
-import "./components/styles.css"; // 引入 CSS 樣式
+import Navbar from "./view/Navbar";
+import StudentList from "./view/StudentList";
+import AddStudentForm from "./view/AddStudentForm";
+import DeleteStudent from "./view/DeleteStudent";
+import UpdateStudentForm from "./view/UpdateStudentForm"; 
+import "./styles/styles.css"; // 引入 CSS 樣式
 
 
 function App() {
