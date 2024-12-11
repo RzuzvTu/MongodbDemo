@@ -234,7 +234,7 @@ Content-Type: application/json
 ```
 # 架構圖 / 流程圖
 
-![](/Imgs/arch-flow-chart.png)
+![](/flow-chart.png)
 
 ---
 
