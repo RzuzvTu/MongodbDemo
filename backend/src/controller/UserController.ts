@@ -39,7 +39,7 @@ export class UserController extends Contorller {
         const resp = await this.service.insertOne(Request.body)
         Response.status(resp.code).send(resp)
     }
-    
+
     public async deleteById(Request: Request, Response: Response) {
         const resp = await this.service.deleteById(Request.query.id as string)
         Response.status(resp.code).send(resp)
@@ -47,29 +47,28 @@ export class UserController extends Contorller {
 
     public async updateStudentById(Request: Request, Response: Response) {
         const { id, ...updateData } = Request.body;
-    
+
         if (!id) {
             return Response.status(400).send({
                 code: 400,
                 message: "ID is required"
             });
         }
-    
+
         const resp = await this.service.updateStudentById(id, updateData);
         Response.status(resp.code).send(resp);
     }
 
     public async findBySid(Request: Request, Response: Response) {
         const { sid } = Request.params;
-    
-        // 檢查 sid 是否存在
+
         if (!sid) {
             return Response.status(400).send({
                 code: 400,
                 message: "sid is required",
             });
         }
-    
+
         const resp = await this.service.findBySid(sid);
         Response.status(resp.code).send(resp);
     }

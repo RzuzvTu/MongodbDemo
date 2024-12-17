@@ -1,37 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { findAll } from "../services/api"; // 引入封裝好的 API 函數
-import "../styles/styles.css"; // 引入 CSS 樣式
+import { findAll } from "../services/api";
+import "../styles/styles.css";
 
 const StudentList = () => {
-  const [students, setStudents] = useState([]); // 儲存學生資料
-  const [filteredStudents, setFilteredStudents] = useState([]); // 篩選後的學生資料
-  const [searchTerm, setSearchTerm] = useState(""); // 搜尋關鍵字
-  const [loading, setLoading] = useState(true); // 載入狀態
-  const [error, setError] = useState(null); // 錯誤狀態
+  const [students, setStudents] = useState([]);
+  const [filteredStudents, setFilteredStudents] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const data = await findAll(); // 呼叫 API 函數
+        const data = await findAll();
         const sortedData = Array.isArray(data)
-          ? data.sort((a, b) => Number(a.sid) - Number(b.sid)) // 根據 sid 升序排序
+          ? data.sort((a, b) => Number(a.sid) - Number(b.sid))
           : [];
         setStudents(sortedData);
-        setFilteredStudents(sortedData); // 初始顯示所有資料
+        setFilteredStudents(sortedData);
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("無法取得資料，請稍後再試！");
       } finally {
-        setLoading(false); // 停止 loading
+        setLoading(false);
       }
     };
 
-    fetchStudents(); // 執行 fetch 函數
+    fetchStudents();
   }, []);
 
-  // 處理搜尋邏輯：僅能用「姓名」或「帳號」進行搜尋
+  // 搜尋
   const handleSearch = (e) => {
-    const term = e.target.value.toLowerCase(); // 取得搜尋關鍵字並轉小寫
+    const term = e.target.value.toLowerCase();
     setSearchTerm(term);
 
     const filtered = students.filter(
@@ -40,7 +40,7 @@ const StudentList = () => {
         (student.name && student.name.toLowerCase().includes(term))
     );
 
-    setFilteredStudents(filtered); // 更新篩選後的學生資料
+    setFilteredStudents(filtered);
   };
 
   return (
@@ -68,7 +68,7 @@ const StudentList = () => {
       {loading && <p style={{ textAlign: "center" }}>資料載入中...</p>}
       {error && <p style={{ textAlign: "center", color: "red" }}>{error}</p>}
 
-      {/* 顯示學生卡片 */}
+      {/* 顯示學生 */}
       <div className="card-container">
         {filteredStudents.map((student) => (
           <div key={student._id} className="card">

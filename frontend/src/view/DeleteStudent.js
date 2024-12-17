@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { findBySid, deleteById } from "../services/api"; // 引入封裝好的 API 方法
+import { findBySid, deleteById } from "../services/api";
 import "../styles/styles.css";
 
 const DeleteStudent = () => {
@@ -55,7 +55,7 @@ const DeleteStudent = () => {
                 </button>
             </div>
 
-            {/* 彈窗：確認學生資訊 */}
+            {/* 彈窗 */}
             {showPopup && student && (
                 <>
                     {/* 遮罩背景 */}

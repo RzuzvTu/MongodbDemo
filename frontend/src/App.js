@@ -5,7 +5,7 @@ import StudentList from "./view/StudentList";
 import AddStudentForm from "./view/AddStudentForm";
 import DeleteStudent from "./view/DeleteStudent";
 import UpdateStudentForm from "./view/UpdateStudentForm"; 
-import "./styles/styles.css"; // 引入 CSS 樣式
+import "./styles/styles.css";
 
 
 function App() {

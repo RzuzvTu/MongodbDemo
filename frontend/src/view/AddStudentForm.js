@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { insertOne } from "../services/api"; // 引入封裝好的 API 方法
+import { insertOne } from "../services/api";
 
 const AddStudentForm = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const AddStudentForm = () => {
     e.preventDefault();
     console.log("送出資料:", formData);
     try {
-      const response = await insertOne(formData); // 呼叫封裝好的 API 方法
+      const response = await insertOne(formData);
       console.log("新增成功:", response);
       setMessage("學生新增成功！");
     } catch (error) {

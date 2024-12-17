@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { findBySid, updateStudentById } from "../services/api"; // 引入封裝好的 API 方法
+import { findBySid, updateStudentById } from "../services/api";
 import "../styles/styles.css";
 
 const UpdateStudentForm = () => {
